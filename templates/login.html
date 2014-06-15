@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include "head.html" %}
+    </head>
+    <body>
+        <header class="site-header full-row">
+            <h1 class="site-title text-center">Application</h1>
+        </header>
+        
+        {% if notification: %}
+            <div class="site-notification row text-center">
+                {{ notification }}
+            </div>
+        {% endif %}
+        
+        <div class="login-panel row">
+            <form class="login-form" method="POST">
+                <h1 class="form-title text-center">Login</h1>
+                {% if error: %}
+                    <div class="form-error text-center">{{ error }}</div>
+                {% endif %}
+                <div class="email-field"><input type="email" placeholder="Email" name="email" /></div>
+                <div class="password-field"><input type="password" placeholder="Password" name="password" /></div>
+                <div class="buttons-field">
+                    <span class="column box50 left">
+                        <input class="button radius success" type="submit" value="Login" />
+                    </span>
+                    <span class="column box50 right text-right">
+                        <a href="/signup" class="button radius alert">Sign Up</a>
+                    </span>
+                    <div class="clear"> </div>
+                </div>
+            </form>
+            <script type="text/javascript">jQuery('[name="email"]').focus()</script>
+        </div>
+        
+        <footer class="site-footer full-row">
+            {% include "footer.html" %}
+        </footer>
+    </body>
+</html>

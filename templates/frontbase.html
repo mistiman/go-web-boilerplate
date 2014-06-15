@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include "head.html" %}
+    </head>
+    <body>
+        <header class="site-header full-row">
+            <h1 class="site-title column left box50">Application</h1>
+            <div class="login-buttons column right box50 text-right">
+                {% if user != nil: %}
+                    <a href="/account" style="padding-right: 15px;">{{ user.Email }}</a>
+                    <a href="/logout" class="button small radius success">Logout</a>
+                {% endif %}
+                {% if user == nil: %}
+                    <a href="/login" class="button small radius success">Login</a>
+                    <a href="/signup" class="button small radius success">Sign Up</a>
+                {% endif %}
+            </div>
+            <div class="clear"> </div>
+        </header>
+        
+        {% if notification: %}
+            <div class="site-notification row text-center">
+                {{ notification }}
+            </div>
+        {% endif %}
+        
+        {% block content %}
+        {% endblock %}
+        
+        <footer class="site-footer full-row">
+            {% include "footer.html" %}
+        </footer>
+    </body>
+</html>
