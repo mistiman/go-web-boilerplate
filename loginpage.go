@@ -53,7 +53,7 @@ func Login(ctx *web.Context) string {
         suid := RandomString(256)
         DB_SESSIONS.Insert(&Session{User: user.Email, Uid: suid, Created: crla, LastAccess: crla})
         
-        ctx.SetCookie(web.NewCookie("application-login", suid, 3600))
+        ctx.SetCookie(web.NewCookie(USER_COOKIE, suid, 3600))
         
         ctx.Redirect(302, "/dash")
     }

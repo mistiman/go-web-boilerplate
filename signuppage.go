@@ -8,9 +8,8 @@ import "github.com/hoisie/web"
 import "github.com/jameskeane/bcrypt"
 import "labix.org/v2/mgo/bson"
 
-// This Email RE will only fit 99% of all emails...
-const EMAIL_RE = `(?i)[A-Z0-9._%+-]+@(?:[A-Z0-9-]+\.)+[A-Z]{2,6}`
 
+// The signup page handler
 func Signup(ctx *web.Context) string {
     // Check if user is logged in.
     if IfUserRedirect(ctx, "/dash") { return "" }

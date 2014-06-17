@@ -21,7 +21,7 @@ func CurrentUserOrRedirect(ctx *web.Context, path string) *User {
 }
 
 func CurrentUser(ctx *web.Context) (*User, error) {
-    cookie, err := ctx.Request.Cookie("application-login")
+    cookie, err := ctx.Request.Cookie(USER_COOKIE)
     if err != nil {
         return nil, err
     }

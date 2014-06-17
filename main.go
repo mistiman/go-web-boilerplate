@@ -6,12 +6,6 @@ import "github.com/flosch/pongo"
 import "github.com/hoisie/web"
 import "labix.org/v2/mgo"
 
-// setup mongodb
-var DB_USERS *mgo.Collection
-var DB_SESSIONS *mgo.Collection
-
-var ERRSOURCE string
-
 func home(ctx *web.Context) string {
     // Check if user is logged in.
     user, err := CurrentUser(ctx)
