@@ -1,6 +1,8 @@
 package main
 
 // setup mongodb
+const DB_NAME string = "test"
+
 var DB_USERS *mgo.Collection
 var DB_SESSIONS *mgo.Collection
 

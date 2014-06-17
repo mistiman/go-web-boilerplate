@@ -29,7 +29,7 @@ func dashboard(ctx *web.Context) string {
 }
 
 func logout(ctx *web.Context) {
-    ctx.SetCookie(web.NewCookie("application-login", "", -3600))
+    ctx.SetCookie(web.NewCookie(USER_COOKIE, "", -3600))
     ctx.Redirect(302, "/")
 }
 
@@ -40,8 +40,8 @@ func main() {
     defer mongodb.Close()
     mongodb.SetMode(mgo.Monotonic, true)
     
-    DB_USERS    = mongodb.DB("test").C("users")
-    DB_SESSIONS = mongodb.DB("test").C("sessions")
+    DB_USERS    = mongodb.DB(DB_NAME).C("users")
+    DB_SESSIONS = mongodb.DB(DB_NAME).C("sessions")
     
     web.Config = &web.ServerConfig{
         RecoverPanic: true,
